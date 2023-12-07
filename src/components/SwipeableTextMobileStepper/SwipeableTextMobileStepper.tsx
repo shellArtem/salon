@@ -48,11 +48,6 @@ const images = [
     imgPath:
       '/7.jpg',
   },
-  {
-    // label: 'Bali, Indonesia',
-    imgPath:
-      '/8.jpg',
-  },
 ];
 
 function SwipeableTextMobileStepper() {
