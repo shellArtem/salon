@@ -101,7 +101,7 @@ function SwipeableTextMobileStepper() {
         enableMouseEvents
       >
         {images.map((step, index) => (
-          <div key={step.label}>
+          <div key={index}>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
                 component="img"
@@ -113,7 +113,7 @@ function SwipeableTextMobileStepper() {
                   width: '100%',
                 }}
                 src={step.imgPath}
-                alt={step.label}
+                // alt={step.label}
               />
             ) : null}
           </div>
