@@ -69,7 +69,7 @@ export default function BasicCard({img, description, alt} : any) {
             {" "}
             <WhatsAppIcon />{" "}
           </a>
-          <a href="tg://resolve?domain=+79771076625">
+          <a href="https://t.me/shellArtem">
             {" "}
             <TelegramIcon />{" "}
           </a>
