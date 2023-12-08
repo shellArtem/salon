@@ -1,3 +1,5 @@
+ /* eslint-disable @typescript-eslint/ban-ts-comment */
+//@ts-nocheck
 import "./App.css";
 import SwipeableTextMobileStepper from "./components/SwipeableTextMobileStepper/SwipeableTextMobileStepper";
 import ResponsiveAppBar from "./components/ResponsiveAppBar/ResponsiveAppBar";
@@ -7,12 +9,29 @@ import BasicCard from "./components/BasicCard/BasicCard";
 import Divider from "@mui/material/Divider";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-// import InstagramIcon from "@mui/icons-material/Instagram";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import { manicurePrice, manPrice, womanPrice, colorPrice } from "./price";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
+import { useLocation } from 'react-router-dom';
+import prerender from 'prerender-node';
+import { useEffect } from 'react';
+
 function App() {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const fetchPrerenderedPage = async () => {
+      const prerenderedPage = await prerender.render({
+        uri: window.location.pathname,
+        token: '9K4AjWeqvqw9U8GnCibg' 
+      });
+    };
+
+    fetchPrerenderedPage();
+  }, []);
+
   return (
     <>
       <ResponsiveAppBar />
