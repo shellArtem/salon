@@ -10,10 +10,12 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { useMediaQuery } from '@mui/material';
 
 const pages = ["Контакты", "Цены", "Позвонить нам +79771076625"];
 
 function ResponsiveAppBar() {
+  const isMobile = useMediaQuery('(max-width:480px)');
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -150,9 +152,13 @@ function ResponsiveAppBar() {
                 </Button>
               ))}
             </Box>
+            <iframe style={{ display: isMobile? "none" : "block"}} src="https://yandex.ru/sprav/widget/rating-badge/27933329123?type=rating&theme=dark" width="150" height="50" frameBorder="0"></iframe>
           </Toolbar>
+          
         </Container>
+        
       </AppBar>
+      
     </ThemeProvider>
   );
 }

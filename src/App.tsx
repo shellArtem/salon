@@ -13,11 +13,14 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import { manicurePrice, manPrice, womanPrice, colorPrice } from "./price";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
+import { useMediaQuery } from '@mui/material';
+
 import prerender from 'prerender-node';
 import { useEffect } from 'react';
 
 function App() {
 
+  const isMobile = useMediaQuery('(max-width:480px)');
 
   useEffect(() => {
     const fetchPrerenderedPage = async () => {
@@ -89,6 +92,7 @@ function App() {
         <Yandex />
       </div>
       <Divider>Наши преимущества</Divider>
+      <iframe style={{ display: isMobile? "block" : "none", marginLeft: "auto", marginRight: "auto"}} src="https://yandex.ru/sprav/widget/rating-badge/27933329123?type=rating&theme=dark" width="150" height="50" frameBorder="0"></iframe>
       <div
         style={{
           display: "flex",
