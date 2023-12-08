@@ -1,5 +1,3 @@
- /* eslint-disable @typescript-eslint/ban-ts-comment */
-//@ts-nocheck
 import "./App.css";
 import SwipeableTextMobileStepper from "./components/SwipeableTextMobileStepper/SwipeableTextMobileStepper";
 import ResponsiveAppBar from "./components/ResponsiveAppBar/ResponsiveAppBar";
@@ -13,24 +11,24 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import { manicurePrice, manPrice, womanPrice, colorPrice } from "./price";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
-import { useLocation } from 'react-router-dom';
-import prerender from 'prerender-node';
-import { useEffect } from 'react';
+// import { useLocation } from 'react-router-dom';
+// import prerender from 'prerender-node';
+// import { useEffect } from 'react';
 
 function App() {
 
-  const location = useLocation();
+  // const location = useLocation();
 
-  useEffect(() => {
-    const fetchPrerenderedPage = async () => {
-      const prerenderedPage = await prerender.render({
-        uri: window.location.pathname,
-        token: '9K4AjWeqvqw9U8GnCibg' 
-      });
-    };
+  // useEffect(() => {
+  //   const fetchPrerenderedPage = async () => {
+  //     const prerenderedPage = await prerender.render({
+  //       uri: window.location.pathname,
+  //       token: '9K4AjWeqvqw9U8GnCibg' 
+  //     });
+  //   };
 
-    fetchPrerenderedPage();
-  }, []);
+  //   fetchPrerenderedPage();
+  // }, []);
 
   return (
     <>
