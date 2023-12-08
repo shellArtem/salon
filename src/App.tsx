@@ -9,9 +9,8 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 // import InstagramIcon from "@mui/icons-material/Instagram";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import { manicurePrice, manPrice, womanPrice, colorPrice } from './price'
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-
+import { manicurePrice, manPrice, womanPrice, colorPrice } from "./price";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
@@ -110,7 +109,10 @@ function App() {
       </div>
       <Divider>Связаться с нами</Divider>
       <div style={{ marginTop: "1%" }}>
-        <span> Мы находимся по адресу: г. Москва, проезд Черепановых, д.32</span>
+        <span>
+          {" "}
+          Мы находимся по адресу: г. Москва, проезд Черепановых, д.32
+        </span>
         <div
           id="contacts"
           style={{
@@ -119,12 +121,12 @@ function App() {
             gap: "20px",
             marginTop: "1%",
           }}
-          >
+        >
           <a href="https://wa.me/79771076625">
             {" "}
             <WhatsAppIcon />{" "}
           </a>
-          <a href="tg://resolve?domain=+79771076625">
+          <a href="https://t.me/shellArtem">
             {" "}
             <TelegramIcon />{" "}
           </a>
