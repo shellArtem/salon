@@ -13,6 +13,7 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import { manicurePrice, manPrice, womanPrice, colorPrice } from "./price";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
+
 import { useMediaQuery } from '@mui/material';
 
 import prerender from 'prerender-node';
@@ -147,7 +148,7 @@ function App() {
             {" "}
             <WhatsAppIcon />{" "}
           </a>
-          <a href="https://t.me/shellArtem">
+          <a href="https://t.me/salon_i_like_it">
             {" "}
             <TelegramIcon />{" "}
           </a>

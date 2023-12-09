@@ -69,7 +69,7 @@ export default function BasicCard({img, description, alt} : any) {
             {" "}
             <WhatsAppIcon />{" "}
           </a>
-          <a href="https://t.me/shellArtem">
+          <a href="https://t.me/salon_i_like_it">
             {" "}
             <TelegramIcon />{" "}
           </a>
