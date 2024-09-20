@@ -44,7 +44,7 @@ const CustomCard = ({ img, title, description }: any) => {
         >
           {title}
         </Typography>
-        <Typography variant="body2" color="black" style={{ marginTop: '2%', fontSize: isMobile ? '10px' : '17px' }}>
+        <Typography variant="body2" color="black" style={{ marginTop: '2%', fontSize: isMobile ? '9px' : '17px' }}>
           {description}
         </Typography>
       </CardContent>
