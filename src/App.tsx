@@ -13,7 +13,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import { manicurePrice, manPrice, womanPrice, colorPrice } from './price';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import { Routes, Route } from 'react-router-dom';
-import MenHaircut from './components/ MenHaircuts/MenHaircuts';
+import MenHaircut from './components/MenHaircuts/MenHaircuts';
 import Home from './components/Home/Home';
 import WomenHaircut from './components/WomenHaircut/WomenHaircut'
 import Coloring from './components/Coloring/Coloring'

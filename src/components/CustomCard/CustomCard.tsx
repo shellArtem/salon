@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { useMediaQuery } from '@mui/material';
 
@@ -18,7 +17,7 @@ const CustomCard = ({ img, title, description }: any) => {
     >
       <CardMedia
         component="img"
-        alt="Image"
+        alt={title}
         image={img}
         style={{
           width: isMobile ? '50%' : '30%',
