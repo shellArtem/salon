@@ -20,8 +20,8 @@ const CustomCard = ({ img, title, description }: any) => {
         alt={title}
         image={img}
         style={{
-          width: isMobile ? '50%' : '30%',
-          height: '90%',
+          width: isMobile ? '70%' : '40%',
+          height: isMobile ? '30%' : '90%',
           marginLeft: '2%',
           borderRadius: '10%',
           marginTop: isMobile ? '10%' : '0%',
@@ -40,11 +40,11 @@ const CustomCard = ({ img, title, description }: any) => {
         <Typography
           variant="h3"
           component="div"
-          style={{ marginTop: '2%', color: 'grey', fontSize: isMobile? '30px' : '40px', marginRight: isMobile? '5%' : '0%' }}
+          style={{ marginTop: '2%', color: 'grey', fontSize: isMobile? '20px' : '40px', marginRight: isMobile? '5%' : '0%' }}
         >
           {title}
         </Typography>
-        <Typography variant="body2" color="black" style={{ marginTop: '2%', fontSize: isMobile ? '12px' : '17px' }}>
+        <Typography variant="body2" color="black" style={{ marginTop: '2%', fontSize: isMobile ? '11px' : '17px' }}>
           {description}
         </Typography>
       </CardContent>

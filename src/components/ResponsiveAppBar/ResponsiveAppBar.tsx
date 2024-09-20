@@ -167,11 +167,12 @@ function ResponsiveAppBar() {
               ))}
             </Box>
 
-            <Accordion style={{ marginRight: '10%', backgroundColor: 'grey' }}>
+            <Accordion style={{ marginRight: '10%', backgroundColor: 'grey'}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1-content"
                 id="panel1-header"
+                style={{height: isMobile? '30px' : ''}}
               >
                 Следим за модой
               </AccordionSummary>
