@@ -30,7 +30,7 @@ export default function BasicCard({img, description, alt} : any) {
 
   return (
     <>
-    <Card sx={{ width: 275, height: 450 }}>
+    <Card sx={{ width: 275, height: 450, borderRadius: '2%' }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           <img src={img} alt={alt} />

@@ -38,7 +38,7 @@ export default function ImgMediaCard({ service, description, img, alt, price }: 
 
   return (
     <>
-      <Card sx={{ maxWidth: 345, height: 800 }} >
+      <Card sx={{ maxWidth: 345, height: 800, borderRadius: '1%'}} >
         <CardMedia
           component="img"
           alt={alt}

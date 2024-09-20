@@ -14,37 +14,42 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
-    // label: 'San Francisco – Oakland Bay Bridge',
+    label: 'парикмахерские кресла',
+    imgPath:
+      '/кресла мастеров.jpg',
+  },
+  {
+    label: 'рабочее место мастера маникюра',
+    imgPath:
+      '/маникюр.jpg',
+  },
+  {
+    label: 'кабинет педикюра',
+    imgPath:
+      '/педикюр.jpg',
+  },
+  {
+    label: 'интерьер парикмахерской',
+    imgPath:
+      '/коридор.jpg',
+  },
+  {
+    label: 'ресепшн',
+    imgPath:
+      '/ресепшн.jpg',
+  },
+  {
+    label: 'парикмахерские инструменты',
     imgPath:
       '/1.jpg',
   },
   {
-    // label: 'Bird',
-    imgPath:
-      '/2.jpg',
-  },
-  {
-    // label: 'Bali, Indonesia',
-    imgPath:
-      '/3.jpg',
-  },
-  {
-    // label: 'Goč, Serbia',
-    imgPath:
-      '/4.jpg',
-  },
-  {
-    // label: 'Bird',
+    label: 'мужская стрижка',
     imgPath:
       '/5.jpg',
   },
   {
-    // label: 'Bali, Indonesia',
-    imgPath:
-      '/6.jpg',
-  },
-  {
-    // label: 'Bird',
+    label: 'маникюрные инструменты',
     imgPath:
       '/7.jpg',
   },
@@ -100,14 +105,14 @@ function SwipeableTextMobileStepper() {
               <Box
                 component="img"
                 sx={{
-                  height: isMobile? 255 : 455,
+                  height: isMobile? 255 : 600,
                   display: 'block',
                   maxWidth: 800,
                   overflow: 'hidden',
                   width: '100%',
                 }}
                 src={step.imgPath}
-                // alt={step.label}
+                alt={step.label}
               />
             ) : null}
           </div>
