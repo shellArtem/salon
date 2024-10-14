@@ -27,14 +27,14 @@ function App() {
   const isMobile = useMediaQuery('(max-width:480px)');
 
   useEffect(() => {
-    const fetchPrerenderedPage = async () => {
-      await prerender.render({
-        uri: '/',
-        token: '9K4AjWeqvqw9U8GnCibg',
-      });
-    };
+    // const fetchPrerenderedPage = async () => {
+    //   await prerender.render({
+    //     uri: '/',
+    //     token: '9K4AjWeqvqw9U8GnCibg',
+    //   });
+    // };
 
-    fetchPrerenderedPage();
+    // fetchPrerenderedPage();
   }, []);
 
   return (

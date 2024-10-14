@@ -1,0 +1,50 @@
+#animated-text {
+    font-size: 28px;
+    color: #333;
+    white-space: nowrap; /* Предотвращает перенос строк */
+    overflow: hidden; /* Скрывает содержимое */
+    border-right: 4px solid; /* Создает эффект курсора */
+    width: 0; /* Начальная ширина */
+    animation: typing 4s steps(30) forwards, blink 0.75s step-end infinite;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: #333; }
+}
+
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 600px) {
+    #animated-text {
+        font-size: 20px; /* Уменьшаем размер шрифта для мобильных */
+        border-right: 3px solid; /* Уменьшаем толщину курсора */
+        margin-top: 3%; /* Уменьшаем верхний отступ */
+        margin-bottom: 3%; /* Уменьшаем нижний отступ */
+        white-space:pre-line;
+        height: 7rem;
+    }
+}
+
+.container {
+    text-align: center;
+}
+
+.image {
+    width: 80%; /* Измените размер по необходимости */
+    opacity: 0;
+    transform: translateY(50px); /* Начальная позиция картинки */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Параметры анимации */
+}
+
+.image.visible {
+    opacity: 1; /* Конечное состояние */
+    transform: translateY(0); /* Конечная позиция */
+}
