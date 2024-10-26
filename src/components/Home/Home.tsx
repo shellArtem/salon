@@ -66,13 +66,13 @@ function Home() {
     <>
       <h1>SALON_I_LIKE_IT</h1>
 
-      {/* <!-- Yandex.RTB R-A-11999028-1 --> */}
-      <div id="yandex_rtb_R-A-11999028-1"></div>
-      <script defer>
+      {/* <!-- Yandex.RTB R-A-11999028-2 --> */}
+      <div id="yandex_rtb_R-A-11999028-2"></div>
+      <script>
         {window.yaContextCb.push(() => {
           Ya.Context.AdvManager.render({
-            blockId: 'R-A-11999028-1',
-            renderTo: 'yandex_rtb_R-A-11999028-1',
+            blockId: 'R-A-11999028-2',
+            renderTo: 'yandex_rtb_R-A-11999028-2',
             type: 'feed',
           });
         })}
