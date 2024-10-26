@@ -8,7 +8,7 @@ const CustomCard = ({ img, title, description }: any) => {
     <Card
       style={{
         width: '80%',
-        height: isMobile? '100vh' : '50vh',
+        height: isMobile? 'auto' : '50vh',
         display: 'flex',
         flexDirection: isMobile ? 'column' : 'row',
         alignItems: 'center',
