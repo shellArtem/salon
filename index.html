@@ -18,10 +18,10 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="https://salonkoptevo.ru/favicon.ico"
+      href="/favicon.ico"
     />
     <!-- <link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" /> -->
-<!-- 
+    <!-- 
     <script defer
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3687589582192833"
@@ -76,8 +76,17 @@
 
   <body>
     <div id="root"></div>
+    <!-- Yandex.RTB R-A-11999028-1 -->
+    <div id="yandex_rtb_R-A-11999028-1"></div>
+    <script>
+      window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+          blockId: 'R-A-11999028-1',
+          renderTo: 'yandex_rtb_R-A-11999028-1',
+          type: 'feed',
+        });
+      });
+    </script>
     <script type="module" src="/src/main.tsx"></script>
-
-    
   </body>
 </html>
