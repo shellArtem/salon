@@ -71,9 +71,9 @@ function Home() {
       <script>
         {window.yaContextCb.push(() => {
           Ya.Context.AdvManager.render({
-            blockId: 'R-A-11999028-2',
-            renderTo: 'yandex_rtb_R-A-11999028-2',
-            type: 'feed',
+            blockId: 'R-A-11999028-3',
+            type: 'floorAd',
+            platform: 'touch',
           });
         })}
       </script>
