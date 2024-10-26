@@ -22,6 +22,17 @@ import './ResponsiveAppBar.css'
 const pages = ['Контакты', 'Цены', 'Позвонить нам +79771076625'];
 
 function ResponsiveAppBar() {
+
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleAccordionChange = () => {
+    setExpanded((prevExpanded) => !prevExpanded);
+  };
+
+  const handleButtonClick = () => {
+    setExpanded(false); // Скрыть аккордеон при нажатии кнопки
+  };
+
   const isMobile = useMediaQuery('(max-width:480px)');
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -168,7 +179,10 @@ function ResponsiveAppBar() {
               ))}
             </Box>
 
-            <Accordion style={{ marginRight: '10%', backgroundColor: 'grey'}}>
+            <Accordion 
+            expanded={expanded}
+            onChange={handleAccordionChange}
+            style={{ marginRight: '10%', backgroundColor: 'grey'}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1-content"
@@ -185,13 +199,13 @@ function ResponsiveAppBar() {
                   padding: isMobile ?  '0px' : '8px 16px 16px'
                 }}
               >
-                <Button component={Link} to="/men" id='buttonInfo'>
+                <Button component={Link} to="/men" id='buttonInfo' onClick={handleButtonClick}>
                   мужские стрижки
                 </Button>
-                <Button component={Link} to="/women" id='buttonInfo'>
+                <Button component={Link} to="/women" id='buttonInfo' onClick={handleButtonClick}>
                   женские стрижки
                 </Button>
-                <Button component={Link} to="/coloring" id='buttonInfo'>
+                <Button component={Link} to="/coloring" id='buttonInfo' onClick={handleButtonClick}>
                   окрашивания
                 </Button>
               </AccordionDetails>

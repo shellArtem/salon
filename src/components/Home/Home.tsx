@@ -56,7 +56,7 @@ function Home() {
     };
 
     window.addEventListener('load', handleLoad);
-  
+
     return () => {
       window.removeEventListener('load', handleLoad);
     };
@@ -65,6 +65,18 @@ function Home() {
   return (
     <>
       <h1>SALON_I_LIKE_IT</h1>
+
+      {/* <!-- Yandex.RTB R-A-11999028-1 --> */}
+      <div id="yandex_rtb_R-A-11999028-1"></div>
+      <script defer>
+        {window.yaContextCb.push(() => {
+          Ya.Context.AdvManager.render({
+            blockId: 'R-A-11999028-1',
+            renderTo: 'yandex_rtb_R-A-11999028-1',
+            type: 'feed',
+          });
+        })}
+      </script>
       <div className="image-container">
         <img
           src="25.jpg"
