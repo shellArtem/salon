@@ -13,6 +13,7 @@ const CustomCard = ({ img, title, description }: any) => {
         flexDirection: isMobile ? 'column' : 'row',
         alignItems: 'center',
         borderRadius: '1%',
+        textAlign: 'left'
       }}
     >
       <CardMedia
@@ -27,14 +28,14 @@ const CustomCard = ({ img, title, description }: any) => {
           marginTop: isMobile ? '10%' : '0%',
         }}
       />
-      <div
+      {/* <div
         style={{
           width: isMobile? '95%' : '2px',
           background: 'black',
           height: isMobile? '2px' : '95%',
           margin: isMobile? '10px 0' : '0 10px',
         }}
-      />{' '}
+      />{' '} */}
       {/* Вертикальная линия */}
       <CardContent style={{ width: '60%', height: '100%', padding: '7%' }}>
         <Typography

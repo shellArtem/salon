@@ -17,6 +17,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import './ResponsiveAppBar.css'
 
 const pages = ['Контакты', 'Цены', 'Позвонить нам +79771076625'];
 
@@ -172,7 +173,7 @@ function ResponsiveAppBar() {
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1-content"
                 id="panel1-header"
-                style={{height: isMobile? '30px' : ''}}
+                style={{height: isMobile? '3rem' : '', minHeight: '0px'}}
               >
                 Следим за модой
               </AccordionSummary>
@@ -180,18 +181,19 @@ function ResponsiveAppBar() {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  position: isMobile ? 'static' : 'absolute',
+                  position: 'absolute',
+                  padding: isMobile ?  '0px' : '8px 16px 16px'
                 }}
               >
-                <Button component={Link} to="/men">
+                <Button component={Link} to="/men" id='buttonInfo'>
                   мужские стрижки
                 </Button>
-                <Button component={Link} to="/women">
+                <Button component={Link} to="/women" id='buttonInfo'>
                   женские стрижки
                 </Button>
-                {/* <Button component={Link} to="/coloring">
+                <Button component={Link} to="/coloring" id='buttonInfo'>
                   окрашивания
-                </Button> */}
+                </Button>
               </AccordionDetails>
             </Accordion>
 

@@ -1,0 +1,22 @@
+#buttonInfo {
+    color: #1976D2; /* Цвет текста по умолчанию */
+    background-color: transparent; /* Цвет фона по умолчанию */
+    transition: background-color 0.3s; /* Плавный переход */
+    
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    #buttonInfo {
+        color: black; /* Цвет текста для мобильных устройств */
+        background-color: #afafb8; /* Цвет фона для мобильных устройств */
+        white-space: nowrap;
+        font-size: 11.5px;
+    }
+}
+
+/* Состояние при клике и фокусе */
+#buttonInfo:active,
+#buttonInfo:focus {
+    background-color: #afafb8; /* Сохраняем фоновый цвет при нажатии */
+}
