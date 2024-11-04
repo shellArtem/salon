@@ -16,51 +16,51 @@ import './Home.css';
 
 import { useMediaQuery } from '@mui/material';
 
-// import prerender from 'prerender-node';
+import prerender from 'prerender-node';
 import { useEffect, useRef, useState } from 'react';
 
 function Home() {
   const isMobile = useMediaQuery('(max-width:480px)');
 
   useEffect(() => {
-    // const fetchPrerenderedPage = async () => {
-    //   await prerender?.render({
-    //     uri: '/',
-    //     token: '9K4AjWeqvqw9U8GnCibg'
-    //   });
-    // };
+    const fetchPrerenderedPage = async () => {
+      await prerender?.render({
+        uri: '/',
+        token: '9K4AjWeqvqw9U8GnCibg'
+      });
+    };
 
-    // fetchPrerenderedPage();
+    fetchPrerenderedPage();
     type();
   }, []);
 
-  const div = useRef();
-  const imgRef = useRef(null);
+  // const div = useRef();
+  // const imgRef = useRef(null);
 
-  let index = 0;
-  const text =
-    'Весь октябрь скидка на маникюр и педикюр 25% в счастливые часы по промокоду "ТЕПЛО"';
-  function type() {
-    if (index < text.length) {
-      div.innerHTML += text.charAt(index);
-      index++;
-      setTimeout(type, 200); // Пауза между печатью символов
-    }
-  }
+  // let index = 0;
+  // const text =
+  //   'Весь октябрь скидка на маникюр и педикюр 25% в счастливые часы по промокоду "ТЕПЛО"';
+  // function type() {
+  //   if (index < text.length) {
+  //     div.innerHTML += text.charAt(index);
+  //     index++;
+  //     setTimeout(type, 200); // Пауза между печатью символов
+  //   }
+  // }
 
-  const [isVisible, setIsVisible] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const handleLoad = () => {
-      setIsVisible(true);
-    };
+  // useEffect(() => {
+  //   const handleLoad = () => {
+  //     setIsVisible(true);
+  //   };
 
-    window.addEventListener('load', handleLoad);
+  //   window.addEventListener('load', handleLoad);
 
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('load', handleLoad);
+  //   };
+  // }, []);
 
   return (
     <>
@@ -77,18 +77,18 @@ function Home() {
           });
         })}
       </script>
-      <div className="image-container">
+      {/* <div className="image-container">
         <img
           src="25.jpg"
           alt="Акция"
           className={`image ${isVisible ? 'visible' : ''}`}
           ref={imgRef}
         />
-      </div>
-      <div id="animated-text" ref={div}>
+      </div> */}
+      {/* <div id="animated-text" ref={div}>
         Весь октябрь скидка на маникюр и педикюр <strong>25%</strong> в
         счастливые часы по промокоду "ТЕПЛО"{' '}
-      </div>
+      </div> */}
       <div
         style={{
           display: 'flex',
