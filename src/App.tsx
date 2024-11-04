@@ -30,7 +30,7 @@ function App() {
     const fetchPrerenderedPage = async () => {
       await prerender.render({
         uri: '/',
-        token: '9K4AjWeqvqw9U8GnCibg',
+        token: 'SdDJk9YgpVEaXmZ3Vnma',
       });
     };
 

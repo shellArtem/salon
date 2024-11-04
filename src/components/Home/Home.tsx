@@ -22,17 +22,17 @@ import { useEffect, useRef, useState } from 'react';
 function Home() {
   const isMobile = useMediaQuery('(max-width:480px)');
 
-  useEffect(() => {
-    const fetchPrerenderedPage = async () => {
-      await prerender?.render({
-        uri: '/',
-        token: '9K4AjWeqvqw9U8GnCibg'
-      });
-    };
+  // useEffect(() => {
+  //   const fetchPrerenderedPage = async () => {
+  //     await prerender?.render({
+  //       uri: '/',
+  //       token: 'SdDJk9YgpVEaXmZ3Vnma'
+  //     });
+  //   };
 
-    fetchPrerenderedPage();
-    // type();
-  }, []);
+  //   fetchPrerenderedPage();
+  //   // type();
+  // }, []);
 
   // const div = useRef();
   // const imgRef = useRef(null);
