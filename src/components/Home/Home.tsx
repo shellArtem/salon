@@ -31,7 +31,7 @@ function Home() {
     };
 
     fetchPrerenderedPage();
-    type();
+    // type();
   }, []);
 
   // const div = useRef();
