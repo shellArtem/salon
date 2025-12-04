@@ -12,26 +12,12 @@ import MenuItem from '@mui/material/MenuItem';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
 import { Link } from 'react-router-dom';
-
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import './ResponsiveAppBar.css'
+import './ResponsiveAppBar.css';
 
 const pages = ['Контакты', 'Цены', 'Позвонить нам +79771076625'];
 
 function ResponsiveAppBar() {
-
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleAccordionChange = () => {
-    setExpanded((prevExpanded) => !prevExpanded);
-  };
-
-  const handleButtonClick = () => {
-    setExpanded(false); // Скрыть аккордеон при нажатии кнопки
-  };
 
   const isMobile = useMediaQuery('(max-width:480px)');
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -54,6 +40,17 @@ function ResponsiveAppBar() {
       },
     },
   });
+
+  const [anchorEl, setAnchorEl]: any = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -114,7 +111,7 @@ function ResponsiveAppBar() {
               >
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    {/* <Typography textAlign="center">{page}</Typography> */} 
+                    {/* <Typography textAlign="center">{page}</Typography> */}
                     <Button
                       key={page}
                       onClick={handleCloseNavMenu}
@@ -152,7 +149,12 @@ function ResponsiveAppBar() {
             >
               <Link to="/">
                 <img
-                  style={{ width: '90%', marginLeft: '15%', height: '90%', marginTop: '5%' }}
+                  style={{
+                    width: '90%',
+                    marginLeft: '15%',
+                    height: '90%',
+                    marginTop: '5%',
+                  }}
                   src="/logo.png"
                   alt=""
                 />
@@ -179,37 +181,71 @@ function ResponsiveAppBar() {
               ))}
             </Box>
 
-            <Accordion 
-            expanded={expanded}
-            onChange={handleAccordionChange}
-            style={{ marginRight: '10%', backgroundColor: 'grey'}}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-                style={{height: isMobile? '3rem' : '', minHeight: '0px'}}
-              >
-                Следим за модой
-              </AccordionSummary>
-              <AccordionDetails
+            <>
+              {/* Кнопка, которая выглядит как заголовок аккордеона */}
+              <Button
+                id="basic-button"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+                endIcon={<ExpandMoreIcon />} // Стрелочка справа
                 style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  position: 'absolute',
-                  padding: isMobile ?  '0px' : '8px 16px 16px'
+                  backgroundColor: 'grey',
+                  color: 'white', // Обычно на сером нужен белый текст
+                  marginRight: isMobile ? '0' : '10%', // На мобилке убираем отступ
+                  width: isMobile ? '100%' : 'auto', // На мобилке кнопка во всю ширину
+                  height: isMobile ? '3rem' : 'auto',
+                  justifyContent: 'space-between', // Чтобы текст был слева, а стрелка справа
+                  textTransform: 'none', // Чтобы текст не был капсом
+                  padding: '8px 16px',
                 }}
               >
-                <Button component={Link} to="/men" id='buttonInfo' onClick={handleButtonClick}>
+                Следим за модой
+              </Button>
+
+              {/* Сам выпадающий список */}
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'basic-button',
+                }}
+                // PaperProps позволяет стилизовать выпадающее окно
+                PaperProps={{
+                  style: {
+                    width: anchorEl ? anchorEl.clientWidth : undefined, // Ширина меню равна ширине кнопки
+                  },
+                }}
+              >
+                <MenuItem
+                  component={Link}
+                  to="/men"
+                  onClick={handleClose}
+                  style={{ justifyContent: isMobile ? 'center' : 'flex-start' }}
+                >
                   мужские стрижки
-                </Button>
-                <Button component={Link} to="/women" id='buttonInfo' onClick={handleButtonClick}>
+                </MenuItem>
+                <MenuItem
+                  component={Link}
+                  to="/women"
+                  onClick={handleClose}
+                  style={{ justifyContent: isMobile ? 'center' : 'flex-start' }}
+                >
                   женские стрижки
-                </Button>
-                <Button component={Link} to="/coloring" id='buttonInfo' onClick={handleButtonClick}>
+                </MenuItem>
+                <MenuItem
+                  component={Link}
+                  to="/coloring"
+                  onClick={handleClose}
+                  style={{ justifyContent: isMobile ? 'center' : 'flex-start' }}
+                >
                   окрашивания
-                </Button>
-              </AccordionDetails>
-            </Accordion>
+                </MenuItem>
+              </Menu>
+            </>
 
             <iframe
               style={{ display: isMobile ? 'none' : 'block' }}
