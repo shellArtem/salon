@@ -51,7 +51,7 @@ function womanPrice() {
 function colorPrice() {
   return (
     <>
-      <div> Кератин - 3000-6000 р. </div>
+      <div> Кератин - 4000-8000 р. </div>
       <div> Ботокс - 2000-5000 р. </div>
       <div> Химическая завивка - 2500-5000 р. </div>
       <div style={{ color: 'black' }}> Сложное окрашивание: </div>
