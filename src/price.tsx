@@ -23,7 +23,7 @@ function manicurePrice() {
 function manPrice() {
   return (
     <>
-      <div> Стрижка насадками - 600-600 р. </div>
+      <div> Стрижка насадками - 500-600 р. </div>
       <div> Классическая - 700-1000 р. </div>
       <div> Модельная - 1000-1500 р. </div>
       <div> Удлиненная - 800-1500 р. </div>
