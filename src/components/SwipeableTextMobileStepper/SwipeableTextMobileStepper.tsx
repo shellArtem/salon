@@ -13,14 +13,14 @@ import './SwipeableTextMobileStepper.css';
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
-  { label: 'парикмахерские кресла', imgPath: '/opt-кресла_мастеров.jpg' },
-  { label: 'рабочее место мастера маникюра', imgPath: '/opt-маникюр.jpg' },
-  { label: 'кабинет педикюра', imgPath: '/opt-педикюр.jpg' },
-  { label: 'интерьер парикмахерской', imgPath: '/opt-коридор.jpg' },
-  { label: 'ресепшн', imgPath: '/opt-ресепшн.jpg' },
-  { label: 'парикмахерские инструменты', imgPath: '/opt-1.jpg' },
-  { label: 'мужская стрижка', imgPath: '/opt-5.jpg' },
-  { label: 'маникюрные инструменты', imgPath: '/opt-7.jpg' },
+  { label: 'парикмахерские кресла', imgPath: '/carousel-chairs.jpg' },
+  { label: 'рабочее место мастера маникюра', imgPath: '/carousel-manicure.jpg' },
+  { label: 'кабинет педикюра', imgPath: '/carousel-pedicure.jpg' },
+  { label: 'интерьер парикмахерской', imgPath: '/carousel-corridor.jpg' },
+  { label: 'ресепшн', imgPath: '/carousel-reception.jpg' },
+  { label: 'парикмахерские инструменты', imgPath: '/carousel-tools.jpg' },
+  { label: 'мужская стрижка', imgPath: '/carousel-haircut.jpg' },
+  { label: 'маникюрные инструменты', imgPath: '/carousel-nail-tools.jpg' },
 ];
 
 function SwipeableTextMobileStepper() {

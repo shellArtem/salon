@@ -58,13 +58,13 @@ export default function Reviews() {
         ))}
       </div>
 
-      <p className="reviews-note">
+      {/* <p className="reviews-note">
         Отзывы взяты с{' '}
         <a href={YANDEX_REVIEWS_URL} target="_blank" rel="noopener noreferrer">
           карточки салона на Яндекс.Картах
         </a>
         . Первым показан закреплённый отзыв владельца.
-      </p>
+      </p> */}
     </section>
   );
 }
