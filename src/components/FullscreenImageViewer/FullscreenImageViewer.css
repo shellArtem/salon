@@ -1,0 +1,101 @@
+.image-viewer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  flex-direction: column;
+  touch-action: none;
+  user-select: none;
+}
+
+.image-viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.image-viewer-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.image-viewer-close {
+  flex-shrink: 0;
+  border: 0;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-viewer-close:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.image-viewer-stage {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  min-height: 0;
+}
+
+.image-viewer-stage.is-dragging {
+  cursor: grabbing;
+}
+
+.image-viewer-frame {
+  transform-origin: center center;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-viewer-image {
+  display: block;
+  max-width: min(96vw, 1200px);
+  max-height: calc(100dvh - 120px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.image-viewer-hint {
+  flex-shrink: 0;
+  padding: 10px 16px 16px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.image-viewer-reset {
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: inherit;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+}

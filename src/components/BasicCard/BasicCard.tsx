@@ -30,13 +30,20 @@ export default function BasicCard({img, description, alt} : any) {
 
   return (
     <>
-    <Card sx={{ width: 275, height: 450, borderRadius: '2%' }}>
+    <Card sx={{
+      width: '100%',
+      maxWidth: 320,
+      height: 'auto',
+      borderRadius: '12px',
+      mx: 'auto',
+    }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          <img src={img} alt={alt} />
+          <img src={img} alt={alt} loading="lazy" style={{ maxWidth: 64, height: 'auto' }} />
         </Typography>
-        <Typography variant="body2"
-        style={{ height: "250px" }}
+        <Typography
+          variant="body2"
+          sx={{ fontSize: isMobile ? 13 : 14, lineHeight: 1.5 }}
         >
           {description}
         </Typography>
@@ -47,7 +54,7 @@ export default function BasicCard({img, description, alt} : any) {
         justifyContent: "center",
         alignItems: "end",
       }}>
-        <Button onClick={handleClickOpen} size="small">I like IT 👍🏻</Button>
+        <Button onClick={handleClickOpen} size="small">Записаться</Button>
       </CardActions>
     </Card>
     <Dialog
@@ -56,11 +63,11 @@ export default function BasicCard({img, description, alt} : any) {
     onClose={handleClose}
     aria-describedby="alert-dialog-slide-description"
   >
-    <DialogTitle style={{textAlign: 'center', fontFamily: "'Comfortaa', sans-serif", fontSize: isMobile? '10px' : '20px'}}></DialogTitle>
+    <DialogTitle style={{textAlign: 'center', fontFamily: "'Comfortaa', sans-serif", fontSize: isMobile? '18px' : '20px'}}></DialogTitle>
     <DialogContent>
       <DialogContentText 
       id="alert-dialog-slide-description"
-      fontSize={isMobile? 10 : 20}
+      fontSize={isMobile? 15 : 18}
       >
         <h2> Вы можете записаться к нам </h2>
         <h3> по телефону: <a href="tel:+79771076625"> 8(977)107-66-25 </a></h3>

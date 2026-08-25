@@ -1,55 +1,71 @@
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { useState } from 'react';
+import { Card, CardContent, Typography } from '@mui/material';
 import { useMediaQuery } from '@mui/material';
+import FullscreenImageViewer from '../FullscreenImageViewer/FullscreenImageViewer';
+import './CustomCard.css';
 
 const CustomCard = ({ img, title, description }: any) => {
-  const isMobile = useMediaQuery('(max-width:480px)');
+  const isMobile = useMediaQuery('(max-width:899px)');
+  const [viewerOpen, setViewerOpen] = useState(false);
 
   return (
-    <Card
-      style={{
-        width: '80%',
-        height: isMobile? 'auto' : '50vh',
-        display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
-        alignItems: 'center',
-        borderRadius: '1%',
-        textAlign: 'left'
-      }}
-    >
-      <CardMedia
-        component="img"
-        alt={title}
-        image={img}
-        style={{
-          width: isMobile ? '70%' : '40%',
-          height: isMobile ? '30%' : '90%',
-          marginLeft: '2%',
-          borderRadius: '10%',
-          marginTop: isMobile ? '10%' : '0%',
+    <>
+      <Card
+        sx={{
+          width: '100%',
+          maxWidth: 900,
+          height: 'auto',
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: isMobile ? 'stretch' : 'center',
+          borderRadius: '12px',
+          textAlign: 'left',
+          mx: 'auto',
         }}
-      />
-      {/* <div
-        style={{
-          width: isMobile? '95%' : '2px',
-          background: 'black',
-          height: isMobile? '2px' : '95%',
-          margin: isMobile? '10px 0' : '0 10px',
-        }}
-      />{' '} */}
-      {/* Вертикальная линия */}
-      <CardContent style={{ width: '60%', height: '100%', padding: '7%' }}>
-        <Typography
-          variant="h3"
-          component="div"
-          style={{ marginTop: '2%', color: 'grey', fontSize: isMobile? '20px' : '40px', marginRight: isMobile? '5%' : '0%' }}
+      >
+        <button
+          type="button"
+          className="custom-card-media-btn"
+          aria-label={`Открыть фото: ${title}`}
+          onClick={() => setViewerOpen(true)}
         >
-          {title}
-        </Typography>
-        <Typography variant="body2" color="black" style={{ marginTop: '2%', fontSize: isMobile ? '9px' : '17px' }}>
-          {description}
-        </Typography>
-      </CardContent>
-    </Card>
+          <img className="custom-card-media" src={img} alt={title} loading="lazy" />
+          <span className="custom-card-media-hint">Нажмите, чтобы рассмотреть</span>
+        </button>
+
+        <CardContent sx={{ flex: 1, p: isMobile ? 2 : 3 }}>
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              color: 'grey.700',
+              fontSize: isMobile ? '1.25rem' : '2rem',
+              mb: 1,
+            }}
+          >
+            {title}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="text.primary"
+            sx={{
+              fontSize: isMobile ? 14 : 16,
+              lineHeight: 1.55,
+              whiteSpace: 'pre-line',
+            }}
+          >
+            {description}
+          </Typography>
+        </CardContent>
+      </Card>
+
+      <FullscreenImageViewer
+        src={img}
+        alt={title}
+        open={viewerOpen}
+        onClose={() => setViewerOpen(false)}
+      />
+    </>
   );
 };
 

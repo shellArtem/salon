@@ -8,67 +8,32 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import { useMediaQuery } from '@mui/material';
+import './SwipeableTextMobileStepper.css';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
-  {
-    label: 'парикмахерские кресла',
-    imgPath:
-      '/кресла мастеров.jpg',
-  },
-  {
-    label: 'рабочее место мастера маникюра',
-    imgPath:
-      '/маникюр.jpg',
-  },
-  {
-    label: 'кабинет педикюра',
-    imgPath:
-      '/педикюр.jpg',
-  },
-  {
-    label: 'интерьер парикмахерской',
-    imgPath:
-      '/коридор.jpg',
-  },
-  {
-    label: 'ресепшн',
-    imgPath:
-      '/ресепшн.jpg',
-  },
-  {
-    label: 'парикмахерские инструменты',
-    imgPath:
-      '/1.jpg',
-  },
-  {
-    label: 'мужская стрижка',
-    imgPath:
-      '/5.jpg',
-  },
-  {
-    label: 'маникюрные инструменты',
-    imgPath:
-      '/7.jpg',
-  },
+  { label: 'парикмахерские кресла', imgPath: '/opt-кресла_мастеров.jpg' },
+  { label: 'рабочее место мастера маникюра', imgPath: '/opt-маникюр.jpg' },
+  { label: 'кабинет педикюра', imgPath: '/opt-педикюр.jpg' },
+  { label: 'интерьер парикмахерской', imgPath: '/opt-коридор.jpg' },
+  { label: 'ресепшн', imgPath: '/opt-ресепшн.jpg' },
+  { label: 'парикмахерские инструменты', imgPath: '/opt-1.jpg' },
+  { label: 'мужская стрижка', imgPath: '/opt-5.jpg' },
+  { label: 'маникюрные инструменты', imgPath: '/opt-7.jpg' },
 ];
 
 function SwipeableTextMobileStepper() {
-
-  const isMobile = useMediaQuery('(max-width:480px)');
-  
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = images.length;
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setActiveStep((prev) => Math.min(prev + 1, maxSteps - 1));
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    setActiveStep((prev) => Math.max(prev - 1, 0));
   };
 
   const handleStepChange = (step: number) => {
@@ -76,54 +41,47 @@ function SwipeableTextMobileStepper() {
   };
 
   return (
-    <Box sx={{ maxWidth: 800, flexGrow: 1 }}>
+    <Box className="carousel">
       <Paper
         square
         elevation={0}
         sx={{
           display: 'flex',
           alignItems: 'center',
-          height: 50,
-          pl: 2,
-          bgcolor: 'background.default',
-          borderTopLeftRadius: 30,
-          borderTopRightRadius: 30,
-        
+          height: 12,
+          bgcolor: 'transparent',
+          borderTopLeftRadius: 16,
+          borderTopRightRadius: 16,
         }}
-      >
-        {/* <Typography>{images[activeStep].label}</Typography> */}
-      </Paper>
+      />
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
+        style={{ width: '100%' }}
       >
         {images.map((step, index) => (
-          <div key={index}>
+          <div key={step.imgPath} style={{ width: '100%' }}>
             {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  height: isMobile? 255 : 600,
-                  display: 'block',
-                  maxWidth: 800,
-                  overflow: 'hidden',
-                  width: '100%',
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
+              <div className="carousel-slide">
+                <img
+                  className="carousel-image"
+                  src={step.imgPath}
+                  alt={step.label}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </div>
             ) : null}
           </div>
         ))}
       </AutoPlaySwipeableViews>
       <MobileStepper
-      sx={{
-        borderBottomLeftRadius: 30,
-        borderBottomRightRadius: 30,
-      
-      }}
+        sx={{
+          borderBottomLeftRadius: 16,
+          borderBottomRightRadius: 16,
+        }}
         steps={maxSteps}
         position="static"
         activeStep={activeStep}
@@ -133,7 +91,7 @@ function SwipeableTextMobileStepper() {
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
           >
-            Next
+            Далее
             {theme.direction === 'rtl' ? (
               <KeyboardArrowLeft />
             ) : (
@@ -148,7 +106,7 @@ function SwipeableTextMobileStepper() {
             ) : (
               <KeyboardArrowLeft />
             )}
-            Back
+            Назад
           </Button>
         }
       />

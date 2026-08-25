@@ -1,22 +1,37 @@
-#buttonInfo {
-    color: #1976D2; /* Цвет текста по умолчанию */
-    background-color: transparent; /* Цвет фона по умолчанию */
-    transition: background-color 0.3s; /* Плавный переход */
-    
+.app-bar .MuiToolbar-root {
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 56px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
-/* Стили для мобильных устройств */
-@media (max-width: 768px) {
-    #buttonInfo {
-        color: black; /* Цвет текста для мобильных устройств */
-        background-color: #afafb8; /* Цвет фона для мобильных устройств */
-        white-space: nowrap;
-        font-size: 11.5px;
-    }
+.app-bar-logo img {
+  display: block;
+  max-height: 44px;
+  width: auto;
+  max-width: 120px;
 }
 
-/* Состояние при клике и фокусе */
-#buttonInfo:active,
-#buttonInfo:focus {
-    background-color: #afafb8; /* Сохраняем фоновый цвет при нажатии */
+@media (max-width: 899px) {
+  .app-bar .MuiToolbar-root {
+    justify-content: space-between;
+  }
+
+  .app-bar-logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .app-bar-logo img {
+    max-height: 40px;
+    max-width: 100px;
+    margin: 0 auto;
+  }
+
+  .app-bar-menu-btn {
+    flex-shrink: 0;
+  }
 }

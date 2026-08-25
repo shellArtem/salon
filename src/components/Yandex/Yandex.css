@@ -1,0 +1,29 @@
+.map-wrap {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.map-wrap iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
+.map-wrap .map-seo-link {
+  position: absolute;
+  color: #eee;
+  font-size: 11px;
+  opacity: 0.01;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .map-wrap iframe {
+    height: 280px !important;
+  }
+}

@@ -1,0 +1,31 @@
+.sticky-call-btn {
+  position: fixed;
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1200;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #1b1b1b;
+  color: #fff !important;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  max-width: calc(100vw - 24px);
+}
+
+.sticky-call-btn:hover {
+  color: #fff !important;
+  background: #2e2e2e;
+}
+
+@media (min-width: 900px) {
+  .sticky-call-btn {
+    display: none;
+  }
+}
