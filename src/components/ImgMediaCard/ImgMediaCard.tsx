@@ -2,7 +2,6 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Dialog from '@mui/material/Dialog';
@@ -13,6 +12,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 import { useMediaQuery } from '@mui/material';
+import FullscreenImageViewer from '../FullscreenImageViewer/FullscreenImageViewer';
+import './ImgMediaCard.css';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -32,63 +33,66 @@ export default function ImgMediaCard({
   fromPrice,
 }: any) {
   const isMobile = useMediaQuery('(max-width:480px)');
-
   const [open, setOpen] = React.useState(false);
+  const [viewerOpen, setViewerOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleClickOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <>
       <Card
+        className="service-card"
         sx={{
           width: '100%',
-          maxWidth: 345,
-          height: isMobile ? 'auto' : 780,
+          maxWidth: 400,
+          height: 'auto',
           borderRadius: '12px',
           display: 'flex',
           flexDirection: 'column',
           mx: 'auto',
+          overflow: 'hidden',
         }}
       >
-        <CardMedia
-          component="img"
-          alt={alt}
-          image={img}
-          loading="lazy"
-          sx={{
-            height: isMobile ? 200 : 280,
-            objectFit: 'cover',
-          }}
-        />
+        <button
+          type="button"
+          className="service-card-media-btn"
+          aria-label={`Открыть фото: ${service}`}
+          onClick={() => setViewerOpen(true)}
+        >
+          <img
+            className="service-card-media"
+            src={img}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+          />
+          <span className="service-card-media-hint">Нажмите, чтобы рассмотреть</span>
+        </button>
+
         <CardContent sx={{ flexGrow: 1, pb: 1 }}>
-          <Typography gutterBottom variant={isMobile ? 'h6' : 'h5'} component="div">
+          <Typography
+            gutterBottom
+            variant={isMobile ? 'h6' : 'h5'}
+            component="div"
+            sx={{ fontFamily: "'Comfortaa', sans-serif" }}
+          >
             {service}
           </Typography>
           {fromPrice ? (
-            <Typography
-              sx={{
-                fontWeight: 700,
-                color: '#1f1f1f',
-                mb: 1,
-                fontSize: isMobile ? 16 : 18,
-              }}
-            >
-              от {fromPrice} ₽
-            </Typography>
+            <p className="service-card-price">
+              <span className="service-card-price-label">от </span>
+              <span className="service-card-price-value">{fromPrice}</span>
+              <span className="service-card-price-currency"> ₽</span>
+            </p>
           ) : null}
           <Typography
             variant="body2"
             color="text.secondary"
             sx={{
-              minHeight: isMobile ? 'auto' : 220,
               fontSize: isMobile ? 13 : 14,
               lineHeight: 1.45,
+              fontFamily: "'Comfortaa', sans-serif",
             }}
           >
             {description}
@@ -110,6 +114,7 @@ export default function ImgMediaCard({
           </Button>
         </CardActions>
       </Card>
+
       <Dialog
         open={open}
         TransitionComponent={Transition}
@@ -130,7 +135,8 @@ export default function ImgMediaCard({
         <DialogContent>
           <DialogContentText
             id="alert-dialog-slide-description"
-            fontSize={isMobile ? 15 : 28}
+            className="service-price-dialog"
+            fontSize={isMobile ? 15 : 22}
           >
             {price}
           </DialogContentText>
@@ -149,6 +155,13 @@ export default function ImgMediaCard({
           </Button>
         </DialogActions>
       </Dialog>
+
+      <FullscreenImageViewer
+        src={img}
+        alt={alt || service}
+        open={viewerOpen}
+        onClose={() => setViewerOpen(false)}
+      />
     </>
   );
 }

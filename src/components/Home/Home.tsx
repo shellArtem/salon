@@ -18,9 +18,12 @@ function Home() {
   return (
     <>
       <header className="hero">
-        <h1 className="hero-title">Парикмахерская «Мне нравится!»</h1>
+        <h1 className="hero-title">
+          <span className="hero-title-line">Парикмахерская</span>
+          <span className="hero-title-brand">«Мне нравится!»</span>
+        </h1>
         <p className="hero-subtitle">
-          Стрижки, маникюр и окрашивание в Коптево — 6 минут пешком от МЦК
+          Стрижки, маникюр и окрашивание в Коптево — 6–8 минут пешком от МЦК
         </p>
       </header>
 
@@ -30,7 +33,8 @@ function Home() {
         </p>
         <p className="promo-note">
           * Пенсионные скидки действуют на стрижки по будням с 10:00 до 12:00 и
-          составляют 50% от полной стоимости, но не менее 400 ₽.
+          составляют 50% от полной стоимости, но не менее{' '}
+          <span className="price-num">400 ₽</span>.
         </p>
       </aside>
 
@@ -142,7 +146,7 @@ function Home() {
       </div>
 
       <div className="home-footer">
-        <a href="#top">© 2023</a>
+        <a href="#top">© {new Date().getFullYear()}</a>
       </div>
     </>
   );
