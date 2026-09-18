@@ -2,6 +2,7 @@ import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PlaceIcon from '@mui/icons-material/Place';
 import { useMediaQuery } from '@mui/material';
+import LazyIframe from '../LazyIframe/LazyIframe';
 import './HowToGet.css';
 
 export default function HowToGet() {
@@ -53,13 +54,14 @@ export default function HowToGet() {
           height={350}
           loading="lazy"
         />
-        <iframe
+        {/* На мобильном — только по клику: меньше параллельных соединений */}
+        <LazyIframe
           title="Маршрут пешком от МЦК Коптево"
           src="https://yandex.ru/map-widget/v1/?rtext=55.8397%2C37.5205~55.841361%2C37.529552&rtt=pd&ll=37.525026%2C55.84053&z=15"
           width="100%"
           height={isMobile ? 240 : 280}
-          allowFullScreen
-          loading="lazy"
+          clickToLoad={isMobile}
+          buttonLabel="Показать интерактивный маршрут"
         />
       </div>
     </section>

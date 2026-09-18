@@ -198,6 +198,7 @@ function ResponsiveAppBar() {
                 src="https://yandex.ru/sprav/widget/rating-badge/27933329123?type=rating&theme=dark"
                 width="150"
                 height="50"
+                loading="lazy"
                 style={{ border: 0, flexShrink: 0 }}
               />
             </>

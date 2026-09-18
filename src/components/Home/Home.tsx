@@ -38,8 +38,6 @@ function Home() {
         </p>
       </aside>
 
-      <div id="yandex_rtb_R-A-11999028-2" />
-
       <div className="home-carousel-wrap">
         <SwipeableTextMobileStepper />
       </div>
