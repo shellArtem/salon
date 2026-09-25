@@ -27,16 +27,30 @@ function Home() {
         </p>
       </header>
 
-      <aside className="promo" aria-label="Акция для пенсионеров">
-        <p className="promo-main">
-          Скидка 50%* для пенсионеров по будням с 10:00 до 12:00
-        </p>
-        <p className="promo-note">
-          * Пенсионные скидки действуют на стрижки по будням с 10:00 до 12:00 и
-          составляют 50% от полной стоимости, но не менее{' '}
-          <span className="price-num">400 ₽</span>.
-        </p>
-      </aside>
+      <section className="promos" aria-label="Акции">
+        <aside className="promo promo--featured" aria-label="Акция на маникюр">
+          <span className="promo-badge">Акция</span>
+          <p className="promo-main">
+            Маникюр с покрытием по акционной цене — всего{' '}
+            <span className="promo-price">1500 ₽</span>!
+          </p>
+          <p className="promo-note">
+            В стоимость входит маникюр классический / аппаратный / комбинированный
+            и покрытие гель-лаком.
+          </p>
+        </aside>
+
+        <aside className="promo" aria-label="Акция для пенсионеров">
+          <p className="promo-main">
+            Скидка 50%* для пенсионеров по будням с 10:00 до 12:00
+          </p>
+          <p className="promo-note">
+            * Пенсионные скидки действуют на стрижки по будням с 10:00 до 12:00 и
+            составляют 50% от полной стоимости, но не менее{' '}
+            <span className="price-num">400 ₽</span>.
+          </p>
+        </aside>
+      </section>
 
       <div className="home-carousel-wrap">
         <SwipeableTextMobileStepper />
